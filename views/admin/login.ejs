@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin login</title>
+  <link rel="stylesheet" href="/styles/adminlog.css">
+</head>
+<body>
+  <div class="wrapper">
+    <form action="/admin/login" method="POST">
+      <h2>Login</h2>
+      <% if(message) { %>
+        <p style="color: white;"> <%= message %></p>
+        <% } %>
+        <div class="input-field">
+        <input id="email" type="text" name="email" >
+        <label>Enter your username</label>
+      </div>
+      <div class="input-field">
+        <input id="password" type="password" name="password" >
+        <label>Enter your password</label>
+      </div>
+      <br><br><br>
+      <button type="submit">Log In</button>
+    </form>
+  </div>
+</body>
+</html>
+
+<script>
+   
+  document.addEventListener('DOMContentLoaded',function() {
+     document.querySelector('form').addEventListener('submit',formValidate)
+  
+  })
+  
+      function formValidate(e) { 
+  
+             e.preventDefault()
+  ;           var email = document.getElementById('email').value;
+             var password = document.getElementById('password').value;
+             if(email == "" || password == "" ){
+              alert("All fields are required");
+              return false
+             }
+               
+            
+          //If validation passes, submit the form manually  
+            e.target.submit()
+            return true
+              }    
+  </script>
+  

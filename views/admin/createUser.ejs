@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New User</title>
+    <link rel="stylesheet" href="/styles/admincreate.css">
+</head>
+<body>
+    <h1>Create New User</h1>
+    <form action="/admin/create" method="post" class="create-user-form">
+        
+        <div class="form-group">
+            <input type="text" name="email" placeholder="username" required>
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <button type="submit">Create User</button>
+        <% if (message) { %>
+            <p class="error-message"><%= message %></p>
+        <% } %>
+    </form>
+</body>
+</html>

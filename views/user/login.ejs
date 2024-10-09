@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>User login</title>
+      <link rel="stylesheet" href="/styles/userlogin.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+      <div class="login-form">
+         <div class="text">
+            LOGIN
+         </div>
+         <!-- displaying the message if it exist -->
+         <% if(message) { %>
+            <p style="color: black;"> <%= message %></p>
+            <% } %>
+
+         <form action="/user/login" method="post">
+            <div class="field">
+               <div class="fas fa-envelope"></div>
+               <input id="email" type="text" placeholder="email" name="email" required>
+            </div>
+            <div class="field">
+               <div class="fas fa-lock"></div>
+               <input id="password" type="password" placeholder="password" name="password" required>
+            </div>
+            <button>LOGIN</button>
+            <div class="link">
+               Not a member?
+               <a href="/user/signup">Signup now</a>
+            </div>
+         </form>
+      </div>
+   </body>
+</html>
+
+
+<script>
+   
+document.addEventListener('DOMContentLoaded',function() {
+   document.querySelector('form').addEventListener('submit',formValidate)
+
+})
+
+    function formValidate(e) { 
+
+           e.preventDefault()
+;           var email = document.getElementById('email').value;
+           var password = document.getElementById('password').value;
+           if(email == "" || password == "" ){
+            alert("All fields are required");
+            return false
+           }
+             
+          
+        //If validation passes, submit the form manually  
+          e.target.submit()
+          return true
+            }    
+</script>
+
+
+
